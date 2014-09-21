@@ -1,7 +1,7 @@
 ﻿/*
  * Copyright (c) 2014 Erdi Izgi
  *
- * Project homepage: https://github.com/erdiizgi/HectorJs
+ * Project homepage and documentation: http://erdiizgi.github.io/HectorJs/
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,18 +22,15 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
-module Vector2D
-{
-    export class Vector2d {
+    class Vector2d {
         
         // ** Properties **  
         private ab = new Float32Array(2); //Most optimal way to kept the values
        
-        // ** constructor set the vector AB **  
+        // ** cconstructor gives the initial values of the vector **  
         constructor(a: number, b: number) {
-            this.a = a; //sets ae1 
-            this.b = b; //sets ae2
+            this.a = a; //sets a value of the vector 
+            this.b = b; //sets b value of the vector
         }
 
         // *************
@@ -54,17 +51,17 @@ module Vector2D
             return this.ab[1];
         }
 
-        //accessor method for magnitude
+        //accessor method to get magnitude of this vector
         get magnitude(): number {
             return Math.sqrt(this.ab[0] * this.ab[0] + this.ab[1] * this.ab[1]);
         }
 
-        //accessor method for magnitude
+        //accessor method to get square magnitude of this vector
         get squareMagnitude(): number {
             return this.ab[0] * this.ab[0] + this.ab[1] * this.ab[1];
         }
 
-        //accessor method for angle
+        //accessor method for angle beetween x-axis
         get angle(): number {
             return (0.5 + (Math.atan2(this.ab[1], this.ab[0]) * (180 / Math.PI))) << 0;
         }
@@ -400,5 +397,3 @@ module Vector2D
             return vector1.Cross(vector2);
         }
     } 
-}
-var Vector2d = Vector2D.Vector2d;
